@@ -2,7 +2,7 @@
 name = "speiseplan"
 version = "0.1.0"
 description = ""
-authors = ["Markus Quade <markus.quade@gmail.com>"]
+authors = ["Markus Quade <info@markusqua.de>"]
 license = "MIT"
 
 [tool.poetry.scripts]
