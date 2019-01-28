@@ -44,7 +44,7 @@ def get_studentenwerk(
 
 
 def main():
-    open_cmd = "open" if platform.system() == "Darwin" else "xgd-open"
+    open_cmd = "open" if platform.system() == "Darwin" else "xdg-open"
 
     for menu in [get_pct(), get_studentenwerk()]:
         subprocess.run([open_cmd, menu])
