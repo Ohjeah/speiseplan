@@ -46,8 +46,12 @@ def get_studentenwerk(
 def main():
     open_cmd = "open" if platform.system() == "Darwin" else "xdg-open"
 
-    for menu in [get_pct(), get_studentenwerk()]:
-        subprocess.run([open_cmd, menu])
+    for name, method in zip(["PCT", "Studentenwerk"], [get_pct, get_studentenwerk]):
+        try:
+            menu = method()
+            subprocess.run([open_cmd, menu])
+        except Exception:
+            print(f"{name} not available today!")
 
 
 if __name__ == "__main__":
