@@ -3,13 +3,7 @@ import subprocess
 import platform
 import json
 
-try:
-    from requests_html import HTMLSession
-except ImportError:
-    from pip._internal import main
-
-    main(["install", "-q", "requests_html"])
-    from requests_html import HTMLSession
+from requests_html import HTMLSession
 
 
 session = HTMLSession()
@@ -43,10 +37,19 @@ def get_studentenwerk(
     return mymensa.geturl()
 
 
+def get_joppe(url="http://fleischerei-joppe.de/mittagstisch/"):
+    r = session.get(url)
+    img = r.html.find(".td-main-content-wrap")[0].xpath("//img")[0]
+    return img.attrs["src"]
+
+
 def main():
     open_cmd = "open" if platform.system() == "Darwin" else "xdg-open"
 
-    for name, method in zip(["PCT", "Studentenwerk"], [get_pct, get_studentenwerk]):
+    for name, method in zip(
+        ["PCT", "Studentenwerk", "Fleischerei Joppe"],
+        [get_pct, get_studentenwerk, get_joppe],
+    ):
         try:
             menu = method()
             subprocess.run([open_cmd, menu])
