@@ -43,6 +43,10 @@ def get_joppe(url="http://fleischerei-joppe.de/mittagstisch/"):
     return img.attrs["src"]
 
 
+def get_doener():
+    return "https://www.lieferando.de/bistro-femo-potsdam"
+
+
 def main():
     open_cmd = "open" if platform.system() == "Darwin" else "xdg-open"
 
