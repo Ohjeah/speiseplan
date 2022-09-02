@@ -5,6 +5,7 @@ import platform
 FOOD_STORES = {
     "Cafe Midi": lambda: "https://cafemidi.de/lunch/",
     "Justizzentrum": lambda: "https://www.essenzzeit.de/de/essenzzeit-restaurants-in-potsdam/bistro-im-justizzentrum-_-9.html",
+    "Rathaus": lambda: "https://company-catering.widynski-roick.de/menu/Stadtverwaltung%20Potsdam/Stadtverwaltung%20Potsdam",
 }
 
 
