@@ -13,6 +13,12 @@ python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 
+[[tool.poetry.source]]
+name = "foo"
+url = "https://pypi.example.org/simple/"
+default = false
+secondary = false
+
 [build-system]
 requires = ["poetry_core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
