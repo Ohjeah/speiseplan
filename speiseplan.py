@@ -3,21 +3,20 @@ import platform
 
 
 FOOD_STORES = {
-    "Cafe Midi": lambda: "https://cafemidi.de/lunch/",
-    "Justizzentrum": lambda: "https://www.essenzzeit.de/kantinen/casino-der-staatskanzlei-potsdam/",
-    "Rathaus": lambda: "https://company-catering.widynski-roick.de/menu/Stadtverwaltung%20Potsdam/Stadtverwaltung%20Potsdam",
+    "Campus Kitchen One": "https://www.campus-kitchen-one.de/en/",
+    "Filmuni Mensa": "https://www.studentenwerk-potsdam.de/essen/unsere-mensen/detailinfos/mensa-filmuniversitaet",
+    "Mensa Griebnitzsee": "https://www.studentenwerk-potsdam.de/essen/unsere-mensen/detailinfos/mensa-griebnitzsee",
 }
 
 
 def main():
     open_cmd = "open" if platform.system() == "Darwin" else "xdg-open"
 
-    for place, method in FOOD_STORES.items():
+    for place, menu in FOOD_STORES.items():
         try:
-            menu = method()
             subprocess.run([open_cmd, menu])
         except Exception:
-            print(f"{name} not available today!")
+            print(f"{place} not available today!")
 
 
 if __name__ == "__main__":
